@@ -1,4 +1,4 @@
-# Java App Migration: Part 6 - Spring MVC APP
+# Java App Migration: Part 7 - Spring MVC APP
 
 Author: Mahdi Aouchiche (<https://github.com/mahdi-aouchiche/Java-App-Migration-7_Spring-MVC-APP>)
 
