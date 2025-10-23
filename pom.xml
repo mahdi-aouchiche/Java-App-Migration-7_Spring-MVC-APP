@@ -1,0 +1,175 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+		 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.mahdi-aouchiche</groupId>
+  <artifactId>spring-mvc-webapp</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>Spring-Mvc-Web-App</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+    <!-- Use Java 8 or higher for compatibility with modern libraries -->
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+
+	<failOnMissingWebXml>false</failOnMissingWebXml>
+	<spring.version>5.1.0.RELEASE</spring.version>
+	<hibernate.version>5.3.5.Final</hibernate.version>
+	<hibernate.validator>6.2.5.Final</hibernate.validator>
+	<jstl.version>1.2</jstl.version> <!-- Simplified jstl version -->
+	<servlets.version>4.0.1</servlets.version> <!-- Updated servlets version -->
+	<jsp.version>2.3.3</jsp.version> <!-- Updated jsp version -->
+	<junit.jupiter.version>5.8.2</junit.jupiter.version> <!-- JUnit 5 -->
+  	<jaxb.version>2.3.1</jaxb.version>
+    <activation.version>1.2.0</activation.version>
+  </properties>
+  
+  
+  <dependencies>
+	<!-- Spring MVC Dependency -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+	</dependency>
+	
+	<!-- Spring ORM -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-orm</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+
+	<!-- Hibernate Core -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>${hibernate.version}</version>
+	</dependency>
+
+	<!-- Hibernate Validator -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-validator</artifactId>
+		<version>${hibernate.validator}</version>
+	</dependency>
+	
+	<!-- Hibernate Second Level Cache (Version synced with hibernate.version) -->
+	<dependency>
+    	<groupId>org.hibernate</groupId>
+    	<artifactId>hibernate-jcache</artifactId>
+    	<version>${hibernate.version}</version> 
+    </dependency>
+
+	<!-- JCache API (JSR-107) -->
+	<dependency>
+    	<groupId>javax.cache</groupId>
+    	<artifactId>cache-api</artifactId>
+    	<version>1.1.1</version>
+	</dependency>
+
+	<!-- Ehcache Implementation (Used for JCache) -->
+	<dependency>
+    	<groupId>org.ehcache</groupId>
+    	<artifactId>ehcache</artifactId>
+    	<version>3.10.8</version> 
+    </dependency>
+
+    <!-- 
+      JAXB dependencies are necessary for Java 9+ where they were removed from the JDK.
+      These are correct to include.
+    -->
+	<dependency>
+	    <groupId>javax.xml.bind</groupId>
+	    <artifactId>jaxb-api</artifactId>
+	    <version>${jaxb.version}</version>
+	    <scope>compile</scope>
+	</dependency>
+	<dependency>
+	    <groupId>org.glassfish.jaxb</groupId>
+	    <artifactId>jaxb-runtime</artifactId>
+	    <version>${jaxb.version}</version>
+	    <scope>runtime</scope>
+	</dependency>
+    <dependency>
+        <groupId>javax.activation</groupId>
+        <artifactId>javax.activation-api</artifactId>
+        <version>${activation.version}</version>
+        <scope>compile</scope>
+    </dependency>
+    
+	<!-- JSTL Dependency -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+		<version>${jstl.version}</version>
+	</dependency>
+
+	<!-- Servlet Dependency -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>${servlets.version}</version>
+		<scope>provided</scope>
+	</dependency>
+
+	<!-- JSP Dependency -->
+	<dependency>
+		<groupId>javax.servlet.jsp</groupId>
+		<artifactId>javax.servlet.jsp-api</artifactId>
+		<version>${jsp.version}</version>
+		<scope>provided</scope>
+	</dependency>
+
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>8.0.28</version> 
+	</dependency>
+	
+	<dependency>
+		<groupId>org.junit.jupiter</groupId>
+		<artifactId>junit-jupiter-api</artifactId>
+		<version>${junit.jupiter.version}</version>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.junit.jupiter</groupId>
+		<artifactId>junit-jupiter-engine</artifactId>
+		<version>${junit.jupiter.version}</version>
+		<scope>test</scope>
+	</dependency>	
+  	
+  </dependencies>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version> 
+      </plugin>
+      <!-- Add maven-compiler-plugin to enforce Java version -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencyManagement>
+  	<dependencies>
+  		<dependency>
+  			<groupId>org.springframework</groupId>
+  			<artifactId>spring-webmvc</artifactId>
+  			<version>${spring.version}</version>
+  		</dependency>
+  	</dependencies>
+  </dependencyManagement>
+</project>
