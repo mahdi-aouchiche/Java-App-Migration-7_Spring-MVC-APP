@@ -35,10 +35,14 @@ public class WebMvcConfig implements WebMvcConfigurer{
           .addResourceLocations("/images/");
     }
 
+   @Bean
+    public AuthenticationInterceptor authenticationInterceptor() {
+        return new AuthenticationInterceptor();
+    }
+   
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        // You'll need to make sure AuthenticationInterceptor is in the classpath
-        registry.addInterceptor(new AuthenticationInterceptor())
+        registry.addInterceptor(authenticationInterceptor())
             // Protect all URLs by default
             .addPathPatterns("/**")
             // Exclude the pages that must be accessible without login

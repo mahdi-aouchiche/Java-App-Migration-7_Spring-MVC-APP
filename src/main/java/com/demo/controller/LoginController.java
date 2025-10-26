@@ -48,7 +48,7 @@ public class LoginController {
 	{
 		ModelAndView modelAndView = null;
 
-		//TODO: Use a service layer for real authentication logic, not hardcoded checks
+		//TODO: Use a service layer for real authentication logic, not hard coded checks
 		if("Admin".equals(loginForm.getUsername())
 				&& "123".equals(loginForm.getPassword()))
 		{
