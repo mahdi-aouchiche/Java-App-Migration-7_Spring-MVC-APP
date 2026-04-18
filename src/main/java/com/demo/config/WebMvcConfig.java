@@ -3,6 +3,7 @@ package com.demo.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.lang.NonNull;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -25,7 +26,7 @@ public class WebMvcConfig implements WebMvcConfigurer{
 	}
 
 	@Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    public void addResourceHandlers(@NonNull ResourceHandlerRegistry registry) {
         registry
           .addResourceHandler("/resources/**")
           .addResourceLocations("/resources/");
@@ -41,7 +42,7 @@ public class WebMvcConfig implements WebMvcConfigurer{
     }
    
     @Override
-    public void addInterceptors(InterceptorRegistry registry) {
+    public void addInterceptors(@NonNull InterceptorRegistry registry) {
         registry.addInterceptor(authenticationInterceptor())
             // Protect all URLs by default
             .addPathPatterns("/**")
