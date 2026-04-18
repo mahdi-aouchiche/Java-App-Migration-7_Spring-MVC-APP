@@ -1,5 +1,6 @@
 package com.demo.config;
 
+import org.springframework.lang.NonNull;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**/
@@ -20,7 +21,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
 	// Map the DispatcherServlet to the root URL "/"
 	@Override
-	protected String[] getServletMappings() {
+	protected @NonNull String[] getServletMappings() {
 		return new String[] { "/" };
 	}
 }

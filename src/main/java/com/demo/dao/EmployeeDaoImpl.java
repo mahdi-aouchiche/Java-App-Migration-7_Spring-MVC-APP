@@ -115,10 +115,11 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	    }
 
 	    // Check if the employee is associated to the department already
-	    if(employee.getDepartments().contains(department)) {
+	    else if(employee.getDepartments().contains(department)) {
 	    	// Employee is associated to the department already
 	    	result = 0; 
-	    } else {
+	    
+		} else {
 	    	employee.addDepartment(department);
 	    	session.persist(employee);
 			
