@@ -57,7 +57,7 @@
 		action: path to map for the Controller
 		modelAttribute: bind the input of this form using loginForm
 	-->
-	<form:form method='post' action='userLogin' modelAttribute="loginForm">
+	<form:form method='post' action='${pageContext.request.contextPath}/userLogin' modelAttribute="loginForm">
 		<table>
 			<thead>
 				<tr style='border:none; '>

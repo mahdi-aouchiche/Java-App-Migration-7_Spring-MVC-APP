@@ -34,7 +34,7 @@
 	<h2>
 		Login to continue to menu.
 		<br>
-		<a href='userLogin'>User Login</a>
+		<a href='${pageContext.request.contextPath}/userLogin'>User Login</a>
 	</h2>
 
 	<img src="images/spring-mvc.jpg" alt="Spring MVC"/>
